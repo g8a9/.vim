@@ -7,40 +7,48 @@ call plug#begin('~/.vim/plugins')
 Plug 'morhetz/gruvbox'          " colorscheme
 Plug 'junegunn/seoul256.vim'    " colorscheme
 Plug 'itchyny/lightline.vim'    " status bar inferiore
-Plug 'valloric/youcompleteme'   " auto-complete
 Plug 'scrooloose/syntastic'     " syntax highlighting
 Plug 'nvie/vim-flake8'          " PEP8 python code checking 
 Plug 'scrooloose/nerdtree'      " project tree
+Plug 'mbbill/undotree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-" Stile
+" Style
 set laststatus=2                " display statusbar
-set noshowmode                  " nasconde lo stato nell'ultima barra inferiore
-let g:lightline = { 'colorscheme': 'seoul256' }
-
+set noshowmode                  " hide status of the bottom-most bar 
+let g:lightline = { 'colorscheme': 'gruvbox' }
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight BadWhitespace ctermbg=red guibg=red
 filetype on
 syntax on
 
-let g:seoul256_background = 234
-colo seoul256    
-"colorscheme gruvbox
-"set background=dark     " has also light version
+" let g:seoul256_background = 234
+" colo seoul256    
+colorscheme gruvbox
+set background=dark     " has also light version
+
 
 set backspace=2         " allows backspacing also with autoindent and other cases
 set number              " line numbering
 set numberwidth=4
 
 " Tab e indentazione
-set textwidth=79
 set expandtab           " tab come sequenza di spazi
 set softtabstop=4
 set tabstop=4           " dimensione tab
 set shiftwidth=4        " dimensione di un'indentazione
 set smartindent
-set autoindent
 set fileformat=unix
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set noerrorbells
 
 function SetPEP8()      " used in python files
     set tabstop=4
@@ -57,10 +65,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Altro
+" Other
 set splitright          " direzione dello split verticale
 set splitbelow          " direzione dello split orizzontale
 set hlsearch            " evidenzia le parole trovate 
