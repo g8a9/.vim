@@ -19,7 +19,7 @@ call plug#end()
 set laststatus=2                " display statusbar
 set noshowmode                  " hide status of the bottom-most bar 
 let g:lightline = { 'colorscheme': 'seoul256' }
-set colorcolumn=80
+set colorcolumn=89
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight BadWhitespace ctermbg=red guibg=red
 filetype on
